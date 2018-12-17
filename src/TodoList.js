@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
+import 'antd/dist/antd.css'
 import { Input, Button, List } from 'antd'
 
-class TodoList extends Compoennt {
+class TodoList extends Component {
     constructor(props){
         super(props)
     }
@@ -9,9 +10,13 @@ class TodoList extends Compoennt {
         return (
             <Fragment>
                 <div>
-
+                    <Input
+                        placeholder="请添加事项"
+                    ></Input>
+                    <Button type="primary">添加</Button>
                 </div>
             </Fragment>
         )
     }
 }
+export default TodoList
