@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import 'antd/dist/antd.css'
 import { Input, Button, List } from 'antd'
-import './TodoList.less'
+import './TodoList.scss'
+
 class TodoList extends Component {
     constructor(props){
         super(props)
