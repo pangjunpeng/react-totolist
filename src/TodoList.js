@@ -4,10 +4,14 @@ import { Input, Button, List } from 'antd'
 import './TodoList.scss'
 
 class TodoList extends Component {
-    constructor(props){
-        super(props)
-    }
+    // constructor(props){
+    //     super(props)
+    // }
     render(){
+        const data = [
+            '1',
+            '2'
+        ]
         return (
             <Fragment>
                 <div>
@@ -17,6 +21,11 @@ class TodoList extends Component {
                     ></Input>
                     <Button type="primary" className="todo-btn">添加</Button>
                 </div>
+                <List
+                    bordered
+                    dataSource={data}
+                    renderItem={item => (<List.Item>{item}</List.Item>)}
+                />
             </Fragment>
         )
     }
