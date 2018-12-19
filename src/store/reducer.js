@@ -8,18 +8,7 @@ const defaultStore = {
 }
 export default (state = defaultStore, action) => {
   let { type, data } = action
-  if(type === 'input_change'){
-    const newState = JSON.parse(JSON.stringify(state))
-    newState.iptValue = data.iptValue
-    return newState
-  }
-  if(type === 'list_add'){
-    const newState = JSON.parse(JSON.stringify(state))
-    newState.list = data.list
-    newState.iptValue = data.iptValue
-    return newState
-  }
-  if(type === 'list_del'){
+  if(data){
     const newState = JSON.parse(JSON.stringify(state))
     newState.list = data.list
     newState.iptValue = data.iptValue

@@ -20,6 +20,7 @@ class TodoList extends Component {
         store.dispatch({
             type: 'input_change',
             data: {
+                list: this.state.list,
                 iptValue: e.target.value
             }
         })
