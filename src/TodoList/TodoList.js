@@ -1,37 +1,44 @@
 import React, { Component } from 'react'
-import 'antd/dist/antd.css'
 import { Input, Button, List } from 'antd'
+import store from '../store'
+import 'antd/dist/antd.css'
 import './TodoList.scss'
 
 class TodoList extends Component {
     constructor(props){
         super(props)
-        this.state = {
-            iptValue: '',
-            list: [1,2,3,4,5,6]
-        }
+        this.state = store.getState()
         this.handleChange = this.handleChange.bind(this)
         this.addItem = this.addItem.bind(this)
         this.delItem = this.delItem.bind(this)
+        store.subscribe(this.watchStoreChange.bind(this))
+    }
+    watchStoreChange(){
+        this.setState(store.getState())
     }
     handleChange(e){
-        this.setState({
-            iptValue: e.target.value
+        store.dispatch({
+            type: 'input_change',
+            data: {
+                iptValue: e.target.value
+            }
         })
     }
     addItem(){
-        this.setState( () => {
-            return {
+        store.dispatch({
+            type: 'list_add',
+            data: {
                 list: [...this.state.list, this.state.iptValue],
                 iptValue: ''
             }
         })
     }
     delItem(index){
-        this.setState( () => {
-            this.state.list.splice(index, 1)
-            const list = this.state.list
-            return {
+        this.state.list.splice(index, 1)
+        const list = this.state.list
+        store.dispatch({
+            type: 'list_del',
+            data: {
                 list
             }
         })
