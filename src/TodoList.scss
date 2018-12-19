@@ -1,7 +1,19 @@
-.todo-input {
-    width: 300px;
-}
-
-.todo-btn {
-    margin-left: 10px;
+.todo-wrapper{
+    margin: 10px;
+    padding-right: 80px;
+    width: 500px;
+    position: relative;
+    .todo-ipt-wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .todo-btn {
+            position: absolute;
+            right: 0
+        }
+    }
+    .todo-list {
+        margin-top: 10px;
+        width: 100%;
+    }
 }
